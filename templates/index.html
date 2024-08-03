@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Login Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-size: cover;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .marquee-text {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 32px;
+      font-family: 'Californian FB', serif;
+      color: #ff4500;
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+      z-index: 1;
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      width: 400px;
+      text-align: center;
+      overflow: hidden;
+      animation: fadeIn 1s ease;
+    }
+
+    .login-container h2 {
+      color: #007bff;
+      font-size: 0;
+      margin-bottom: 20px;
+      overflow: hidden;
+      animation: fadeInDown 1s ease, animateText 2s 1s ease;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes animateText {
+      from {
+        font-size: 0;
+      }
+      to {
+        font-size: 36px; /* Larger font size */
+      }
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: zoomIn 1s ease;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .form-group label {
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+      display: block;
+      font-size: 18px;
+    }
+
+    .form-group input {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .submit-btn {
+      background-color: #007bff;
+      color: #fff;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 20px;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+      animation: fadeInUp 1s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .footer {
+      margin-top: 20px;
+      color: #777;
+      animation: fadeIn 1s ease;
+    }
+
+    .footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const body = document.body;
+      const backgroundImages = [
+        'url("https://source.unsplash.com/featured/?unemployment")',
+        'url("https://source.unsplash.com/featured/?jobless")',
+        'url("https://source.unsplash.com/featured/?layoff")',
+        'url("https://source.unsplash.com/featured/?economic-crisis")',
+        'url("https://source.unsplash.com/featured/?job-search")',
+        'url("https://source.unsplash.com/featured/?unemployed-person")',
+        'url("https://source.unsplash.com/featured/?career-change")',
+        'url("https://source.unsplash.com/featured/?financial-struggle")',
+        'url("https://source.unsplash.com/featured/?workplace-stress")',
+        'url("https://source.unsplash.com/featured/?job-market")',
+      ];
+      let currentIndex = 0;
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % backgroundImages.length;
+        body.style.backgroundImage = backgroundImages[currentIndex];
+      }, 5000);
+    });
+  </script>
+</head>
+<body>
+  <div class="marquee-text">🌟 Unemployment Rate 🌟</div>
+
+  <div class="login-container">
+    <h2 style="font-family: 'Segoe Script', Tahoma, Geneva, Verdana, sans-serif;">🌟 Login with mail id 🌟</h2>
+    <form class="login-form" action="/home" method="post">
+      <div class="form-group">
+        <label for="email">✉️ Enter your Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <button type="submit" class="submit-btn">Login ➡️</button>
+    </form>
+    <div class="footer">
+      Don't have an account? <a href="#">Sign Up</a>
+    </div>
+  </div>
+</body>
+</html>
